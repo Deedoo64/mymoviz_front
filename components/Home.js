@@ -6,6 +6,7 @@ import Movie from "./Movie";
 import "antd/dist/antd.css";
 import styles from "../styles/Home.module.css";
 
+const API_url = "https://mymoviz-back-cyan.vercel.app";
 const posterPrefix = "https://image.tmdb.org/t/p/w500/";
 
 function Home() {
@@ -13,7 +14,8 @@ function Home() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/movies")
+    console.log("About to fetch : ", API_url + "/movies");
+    fetch(API_url + "/movies")
       .then((response) => response.json())
       .then((data) => {
         //setUsers(data);
